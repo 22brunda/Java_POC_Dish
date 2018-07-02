@@ -29,7 +29,7 @@ public class PackageService {
 		return packageRepository.findById(packageId);
 	}
 
-	public PackageBean packageUpdate(PackageBean packageUpdate) {
+	public PackageBean updatePackage(PackageBean packageUpdate) {
 		PackageBean updatedPackage = packageRepository.save(packageUpdate);
 		return updatedPackage;
 		

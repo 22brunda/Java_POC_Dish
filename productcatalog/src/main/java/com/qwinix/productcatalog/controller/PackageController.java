@@ -39,7 +39,7 @@ public class PackageController {
 
 	@PutMapping("/package/{id}")
 	public void updateChannel(@RequestBody PackageBean packageUpdate) {
-		packageService.packageUpdate(packageUpdate);
+		packageService.updatePackage(packageUpdate);
 
 	}
 	@DeleteMapping("/package/{id}")

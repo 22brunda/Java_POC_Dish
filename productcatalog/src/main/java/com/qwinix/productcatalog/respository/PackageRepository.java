@@ -8,5 +8,4 @@ import com.qwinix.productcatalog.model.PackageBean;
 @Repository("packageRepository")
 public interface PackageRepository extends JpaRepository<PackageBean, Integer>{
 	PackageBean findById(int packageId);
-
 }

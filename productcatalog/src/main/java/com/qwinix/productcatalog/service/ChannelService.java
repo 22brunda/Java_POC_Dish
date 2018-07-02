@@ -15,6 +15,13 @@ public class ChannelService {
 	@Autowired
 	ChannelRepository channelRepository;
 
+	public java.util.List<Channel> getAllChannel() {
+		List<Channel> channels = new ArrayList<>();
+		//channelRepository.findAll().forEach(channels::add);
+		channels = channelRepository.findAll();
+		return channels;
+	}
+
 	public Channel findById(int channelId) {
 		return channelRepository.findById(channelId);
 	}
@@ -22,15 +29,6 @@ public class ChannelService {
 	public Channel createChannel(Channel achannel) {
 		Channel addChannel = channelRepository.save(achannel);
 		return addChannel;
-
-	}
-
-	public java.util.List<Channel> getAllChannel() {
-		List<Channel> channels = new ArrayList<>();
-		//channelRepository.findAll().forEach(channels::add);
-		channels = channelRepository.findAll();
-		return channels;
-
 	}
 
 	public Channel channelUpdate(Channel channelUpdate) {
@@ -40,6 +38,5 @@ public class ChannelService {
 
 	public void deleteById(int deleteChannelId) {
 		channelRepository.deleteById(deleteChannelId);
-
 	}
 }
