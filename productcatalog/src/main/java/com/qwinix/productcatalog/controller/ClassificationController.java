@@ -31,6 +31,7 @@ public class ClassificationController {
 		return classificationService.findById(classificationId);
 	}
 
+
 	@PostMapping("/classification")
 	public void createClassification(@RequestBody ClassificationBean classification) {
 		classificationService.createClassification(classification);

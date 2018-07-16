@@ -33,14 +33,13 @@ public class ChannelController {
 	@PostMapping("/channel")
 	public void createChannel(@RequestBody Channel achannel) {
 		channelService.createChannel(achannel);
-
 	}
 
 	@PutMapping("/channel/{id}")
 	public void updateChannel(@RequestBody Channel channelUpdate) {
 		channelService.channelUpdate(channelUpdate);
-
 	}
+
 	@DeleteMapping("/channel/{id}")
 	public void deleteChannelById(@PathVariable(value = "id") int deleteChannelId) {
 		channelService.deleteById(deleteChannelId);

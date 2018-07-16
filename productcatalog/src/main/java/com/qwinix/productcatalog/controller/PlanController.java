@@ -34,14 +34,13 @@ public class PlanController {
 	@PostMapping("/plan")
 	public void createPlan(@RequestBody PlanBean plans) {
 		planService.createPlan(plans);
-
 	}
 
 	@PutMapping("/plan/{id}")
 	public void updatePlan(@RequestBody PlanBean planUpdate) {
 		planService.planUpdate(planUpdate);
-
 	}
+	
 	@DeleteMapping("/plan/{id}")
 	public void deletePlanById(@PathVariable(value = "id") int deletePlanId) {
 		planService.deleteById(deletePlanId);

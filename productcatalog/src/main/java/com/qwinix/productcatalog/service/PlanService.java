@@ -4,10 +4,12 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import com.qwinix.productcatalog.model.PlanBean;
 import com.qwinix.productcatalog.respository.PlanRepository;
 
+@Service
 public class PlanService {
 	@Autowired
 	PlanRepository planRepository;

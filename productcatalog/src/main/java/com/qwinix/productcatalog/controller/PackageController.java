@@ -17,7 +17,7 @@ import com.qwinix.productcatalog.service.PackageService;
 
 @RestController
 @EnableAutoConfiguration
-public class PackageController {
+public class PackageController  {
 	@Autowired
 	PackageService packageService;
 

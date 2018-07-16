@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 
 import com.qwinix.productcatalog.model.Channel;
 import com.qwinix.productcatalog.respository.ChannelRepository;
+import com.qwinix.productcatalog.util.Validator;
 
 
 @Service
@@ -27,8 +28,16 @@ public class ChannelService {
 	}
 
 	public Channel createChannel(Channel achannel) {
-		Channel addChannel = channelRepository.save(achannel);
-		return addChannel;
+		if(Validator.validateText(String.valueOf(achannel.getName()), 2, 20))
+			if(Validator.validateText(String.valueOf(achannel.getDescription()), 10, 255))		
+				if(Validator.validateLength(String.valueOf(achannel.getPriority()), 4))
+					if(Validator.validateText(String.valueOf(achannel.getTitle()), 5, 50))
+					{
+						channelRepository.save(achannel);
+						return achannel;
+					}
+		return null;
+		// return addChannel;
 	}
 
 	public Channel channelUpdate(Channel channelUpdate) {
