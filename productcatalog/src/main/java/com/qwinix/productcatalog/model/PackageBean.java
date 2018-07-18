@@ -16,14 +16,17 @@ import javax.validation.constraints.Digits;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
+import org.hibernate.annotations.DynamicUpdate;
+
 @Entity
+//@DynamicUpdate
 @Table(name = "package")
 public class PackageBean {
 	@Id
-	@GeneratedValue(strategy=GenerationType.SEQUENCE)
+	@GeneratedValue(strategy=GenerationType.TABLE)
 	private int id;
 	
-	@OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)
+	@OneToMany(cascade = CascadeType.MERGE, orphanRemoval = true)
     private List<Channel> channels = new ArrayList<>();
 	
 	@NotNull

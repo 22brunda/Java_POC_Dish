@@ -5,26 +5,20 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 import javax.validation.constraints.AssertTrue;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
-import com.fasterxml.jackson.annotation.JsonBackReference;
+import org.hibernate.annotations.DynamicUpdate;
 
 @Entity
+//@DynamicUpdate
 @Table(name = "channel")
 public class Channel {
 	@Id
-	@GeneratedValue(strategy=GenerationType.SEQUENCE)
+	@GeneratedValue(strategy=GenerationType.TABLE)
 	private int id;
-	
-	@JsonBackReference
-	@ManyToOne
-	@JoinColumn(name="package_id", referencedColumnName="id")
-	private PackageBean packagebean;
 	
 	@NotNull
 	@Size(min=2, max=30, message="Name should have atleast 2 characters")
@@ -77,11 +71,5 @@ public class Channel {
 		this.active = active;
 	}
 
-	public PackageBean getPackagebean() {
-		return packagebean;
-	}
-	public void setPackagebean(PackageBean packagebean) {
-		this.packagebean = packagebean;
-	}
 	
 }

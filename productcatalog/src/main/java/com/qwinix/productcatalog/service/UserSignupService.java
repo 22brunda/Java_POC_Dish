@@ -34,8 +34,8 @@ public class UserSignupService {
 
 	public UserSignup createUser(UserSignup userDetails) {
 		if (validate(userDetails)) {
-			if(findByEmail(userDetails.getEmail()) == null)
-				return userSignupRepository.save(userDetails);
+			if(findByEmail(userDetails.getEmail()) == null) 
+				return userSignupRepository.save(userDetails);	
 			else
 				throw new ValidationException("Duplicate Entry, email already exists!!");
 		}
